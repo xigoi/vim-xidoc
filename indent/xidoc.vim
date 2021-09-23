@@ -26,3 +26,4 @@ function! XidocIndentExprFast(lnum) abort
 endfunction
 
 setlocal indentexpr=XidocIndentExprFast(v:lnum)
+setlocal indentkeys=0],!^F,o,O
