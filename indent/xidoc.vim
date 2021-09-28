@@ -14,14 +14,14 @@ function! XidocIndentExprFull(lnum) abort
 endfunction
 
 function! XidocIndentExprFast(lnum) abort
-  if lnum == 0
+  if a:lnum == 1
     return 0
   endif
   let prev_indent = indent(a:lnum - 1)
   let prev_ln = getline(a:lnum - 1)
   let additional_nesting = count(prev_ln, '[') - count(prev_ln, ']')
   let cur_ln = getline(a:lnum)
-  let additional_nesting -= count(matchstr(cur_ln, '^\s*\]*'), ']')
+  let additional_nesting -= count(matchstr(cur_ln, '^\s*\]*'), ']') - count(matchstr(prev_ln, '^\s*\]*'), ']')
   return prev_indent + additional_nesting * shiftwidth()
 endfunction
 
