@@ -1,5 +1,3 @@
-inoremap <buffer> <expr> <cr> XidocEnter()
-
 function! XidocEnter() abort
   let cur_ln = getline('.')
   let cursor_col = getcurpos()[2] - 1
@@ -10,3 +8,7 @@ function! XidocEnter() abort
     return "\<cr>"
   endif
 endfunction
+
+set commentstring=[#%s]
+
+inoremap <buffer> <expr> <cr> XidocEnter()
