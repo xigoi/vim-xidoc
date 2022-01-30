@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.xd setfiletype xidoc
+autocmd BufNewFile,BufRead *.xd set filetype=xidoc
